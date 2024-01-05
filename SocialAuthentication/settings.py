@@ -39,10 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Add the following apps:
     'Auth'
-    # Adding the following apps for auth: 
-    'oauth2_provider',
-    'social_django',
-    'rest_framework_social_oauth2',
 ]
 
 MIDDLEWARE = [
@@ -68,9 +64,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                # adding new preprocessor for social auth 
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
             ],
         },
     },
