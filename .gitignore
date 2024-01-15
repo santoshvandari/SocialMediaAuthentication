@@ -4,3 +4,4 @@
 /Auth/migrations/__pycache__
 /db.sqlite3
 /.env
+/TestData.txt
