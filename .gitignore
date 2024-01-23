@@ -1,7 +1,0 @@
-/venv
-/SocialAuthentication/__pycache__
-/Auth/__pycache__
-/Auth/migrations/__pycache__
-/db.sqlite3
-/.env
-/TestData.txt
