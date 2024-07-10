@@ -92,10 +92,10 @@ This guide provides step-by-step instructions for obtaining the Client ID and Se
 
 ## Adding Credentials to Your Django Application
 
-After obtaining the Client ID and Secret Key from GitHub, Google, and Facebook, add them to your Django settings or environment variables.
+After obtaining the Client ID and Secret Key from GitHub, Google, and Facebook, add them to your environment variables.
 
 ```python
-# settings.py
+# .env
 
 # GitHub OAuth2
 SOCIAL_AUTH_GITHUB_KEY = 'your-github-client-id'
@@ -108,3 +108,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'your-google-client-secret'
 # Facebook OAuth2
 SOCIAL_AUTH_FACEBOOK_KEY = 'your-facebook-app-id'
 SOCIAL_AUTH_FACEBOOK_SECRET = 'your-facebook-app-secret'
+```
