@@ -38,14 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Auth',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-    # ... include the providers you want to enable:
-    'allauth.socialaccount.providers.google',
-    # 'allauth.socialaccount.providers.facebook',
-    # 'allauth.socialaccount.providers.github',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -56,16 +49,31 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # Add the account middleware:
-    "allauth.account.middleware.AccountMiddleware",
 ]
+
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.yahoo.YahooOAuth2',
+    'social_core.backends.amazon.AmazonOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+
+
 
 ROOT_URLCONF = 'SocialAuthentication.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['Templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,8 +82,12 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
 
-                # `allauth` needs this from django
-                'django.template.context_processors.request',
+                # Add the following two
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
+
+
+
             ],
         },
     },
@@ -84,13 +96,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'SocialAuthentication.wsgi.application'
 
 
-AUTHENTICATION_BACKENDS = [
-    # Needed to login by username in Django admin, regardless of `allauth`
-    'django.contrib.auth.backends.ModelBackend',
-
-    # `allauth` specific authentication methods, such as login by email
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
@@ -144,18 +149,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SOCIAL_AUTH_GITHUB_KEY = 'Ov23lieuKwNutmHtFnWB'
+SOCIAL_AUTH_GITHUB_SECRET='35fc4cbf5c11c3b698fe5b315592e69703804924'
 
 
-# Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
-    'google': {
-        # For each OAuth based provider, either add a ``SocialApp``
-        # (``socialaccount`` app) containing the required client
-        # credentials, or list them here:
-        'APP': {
-            'client_id': '16493192927-ae0rgfur0dl8q2qefvn3cpmc9t2em1rd.apps.googleusercontent.com',
-            'secret': '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',
-            'key':''
-        }
-    }
-}
+
+# Login and Logout URL
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
