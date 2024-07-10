@@ -19,8 +19,11 @@ from django.urls import path,include
 from Auth import views
 
 urlpatterns = [
-    path('accounts/', include('allauth.urls')),
     path('home/',views.home,name="home"),
     path('',views.home,name="home"),
+    path('dashboard/',views.home,name="dashboard"),
     path('login/',views.log_in,name="login"),
+    path('logout/',views.log_out,name="logout"),
+    # add this new url entry to include the social auth's urls
+    path('auth/', include('social_django.urls', namespace='social')),
 ]
