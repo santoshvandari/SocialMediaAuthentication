@@ -53,14 +53,10 @@ MIDDLEWARE = [
 
 
 AUTHENTICATION_BACKENDS = (
+    # Add Other OAuth2 backends here as per your need
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.google.GoogleOAuth2',
     'social_core.backends.facebook.FacebookOAuth2',
-    'social_core.backends.twitter.TwitterOAuth',
-    'social_core.backends.linkedin.LinkedinOAuth2',
-    'social_core.backends.instagram.InstagramOAuth2',
-    'social_core.backends.yahoo.YahooOAuth2',
-    'social_core.backends.amazon.AmazonOAuth2',
 
     'django.contrib.auth.backends.ModelBackend',
 )
@@ -149,13 +145,16 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# Social Auth Keys
 SOCIAL_AUTH_GITHUB_KEY = 'Ov23lieuKwNutmHtFnWB'
 SOCIAL_AUTH_GITHUB_SECRET='35fc4cbf5c11c3b698fe5b315592e69703804924'
 
 
 
-# Login and Logout URL
+# Login, Logout and dashboard URL
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
-LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'login'
