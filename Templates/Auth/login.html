@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Authentication</title>
-    <link rel="stylesheet" href="/static/Auth/style.css">
+    <link rel="stylesheet" href="/static/Auth/login.css"/>
 </head>
 <body>
     <div class="social-wrapper">
-        <h2>Login</h2>
-        <a href="{% url 'social:begin' 'github' %}">Login with GitHub</a>
-        
-        <a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a>
-        <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
-        
+        <h2>Social Login</h2>
+        <a href="{% url 'social:begin' 'github' %}" class="github">Login with GitHub</a>
+        <a href="{% url 'social:begin' 'google-oauth2' %}" class="google">Login with Google</a>
+        <a href="{% url 'social:begin' 'facebook' %}" class="facebook">Login with Facebook</a>
     </div>
 </body>
 </html>
