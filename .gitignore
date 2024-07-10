@@ -3,5 +3,5 @@
 /Auth/__pycache__
 /Auth/migrations/__pycache__
 /db.sqlite3
-/.env
+# /.env
 /TestData.txt
