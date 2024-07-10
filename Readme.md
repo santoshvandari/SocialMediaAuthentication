@@ -73,7 +73,7 @@ Follow the mentioned procedure to run this project in your local system.
     http://127.0.0.1:8000/  #For Home
     http://127.0.0.1:8000/login # For Login
  ```
-
+ You can also consider the Docs of [social-auth-app-django](https://python-social-auth.readthedocs.io/en/latest/index.html) for more information.
 ## Contributing
 We welcome contributions! If you'd like to contribute to this Social Media Authenticaton, please check out our [Contribution Guidelines](Contribution.md).
 
